@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @shop.name %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @shop.genre %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @shop.address %>
+</p>
+
+<p>
+  <strong>Likey:</strong>
+  <%= @shop.likey %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @shop.description %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <a href="<%= @shop.url %>" target="_blank"><%= @shop.url %></a>
+</p>
+
+<%= link_to '編集', edit_shop_path(@shop) %> 
+<td><%= link_to '削除', @shop, method: :delete, data: { confirm: 'この投稿を削除しますか?' } %></td>
+<%= link_to '一覧へ', shops_path %>
+
+<div class="p-comment__list">
+  <div class="p-comment_listTitle">コメント</div>
+  <%= render @shop.comments %>
+</div>
+
+<%= render partial: 'comments/form', locals: { comment: @comment } %>

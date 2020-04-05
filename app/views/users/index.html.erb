@@ -1,0 +1,18 @@
+<h1>ユーザー一覧</h1>
+  <%= link_to "新規登録", new_user_path %>
+  <table>
+    <thead>
+      <tr>
+        <th>ユーザーネーム</th> 
+        <th>自己紹介</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.each do |user| %>
+      <tr>
+        <th><%= link_to user.name, user %></th>
+        <th><%= user.introduction %></th>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
