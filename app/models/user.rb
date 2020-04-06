@@ -3,4 +3,8 @@ class User < ApplicationRecord
   validates :name, presence:true
   validates :email, {uniqueness: true}
   has_many :shops
+  has_many :likes, dependent: :destroy
+  def shops
+    return Shop.where(user_id: self.id)
+  end
 end

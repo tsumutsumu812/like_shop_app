@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>投稿者</th>
       <th>店名</th>
       <th>ジャンル</th>
       <th>住所</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @shops.each do |shop| %>
       <tr>
+        <td><%= link_to shop.user.name, shop.user %></td>
         <td><%= link_to shop.name, shop %></td>
         <td><%= shop.genre %></td>
         <td><%= shop.address %></td>

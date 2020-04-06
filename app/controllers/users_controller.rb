@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 before_action :login_required, only: [:edit, :update]
 before_action :ensure_correct_user, only: [:edit, :update]
+before_action :authenticate_edit_user, only: [:edit, :update, :destroy]
 
   def index
     @user = User.all
@@ -12,6 +13,7 @@ before_action :ensure_correct_user, only: [:edit, :update]
 
   def show
     @user = User.find(params[:id])
+    @likes = Like.where(user_id: @user.id)
   end
 
   def edit
@@ -42,15 +44,22 @@ before_action :ensure_correct_user, only: [:edit, :update]
     @user.destroy
     redirect_to users_path, notice: "ユーザー#{@user.name}を削除しました。"
   end
-
-  def  ensure_correct_user
-    if current_user.id != params[:id].to_i
-      redirect_to shops_path, notice: "権限がありません"
-    end
-  end
   
   private
     def  user_params
       params.require(:user).permit(:name, :email, :introduction, :password, :password_confirmation)
+    end
+
+    def  ensure_correct_user
+      if current_user.id != params[:id].to_i
+        redirect_to shops_path, notice: "権限がありません"
+      end
+    end
+
+    def authenticate_edit_user
+      @user = User.find(params[:id])
+      if @user.id != @current_user.id
+        redirect_to shops_url, notice: "編集権限がありません"
+      end
     end
 end

@@ -1,6 +1,7 @@
 class ShopsController < ApplicationController
   before_action :set_shop, only: [:show, :edit, :update, :destroy]
   before_action :login_required, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_edit_shop, only: [:edit, :update, :destroy]
 
   # GET /shops
   # GET /shops.json
@@ -12,6 +13,8 @@ class ShopsController < ApplicationController
   # GET /shops/1.json
   def show
     @comment = Comment.new(shop_id: @shop.id)
+    @user = @shop.user
+    @likes_count = Like.where(shop_id: @shop.id).count
   end
 
   # GET /shops/new
@@ -72,5 +75,12 @@ class ShopsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def shop_params
       params.require(:shop).permit(:name, :genre, :address, :likey, :description, :url)
+    end
+
+    def authenticate_edit_shop
+      @shop = Shop.find(params[:id])
+      if @shop.user_id != @current_user.id
+        redirect_to shops_url, notice: "編集権限がありません"
+      end
     end
 end
