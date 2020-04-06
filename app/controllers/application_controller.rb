@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def login_required
-    redirect_to login_url notice: "ログインが必要です" unless current_user
+    redirect_to login_url, notice: "ログインが必要です" unless current_user
   end
 
   

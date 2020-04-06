@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to shops_url, notice: "ログインしました。"
     else
+      flash.now[:danger] = "invalid enmail/password combination"
       render :new
     end 
   end
