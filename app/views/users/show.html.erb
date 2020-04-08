@@ -1,6 +1,12 @@
 <h1><%=@user.name%></h1>
 <p><%=@user.introduction%></p>
 
+<section class="stats">
+  <%= render 'shared/stats' %>
+</section>
+<%= render 'follow_form' if current_user%>
+
+
 <h3>投稿一覧</h3>
 <% @user.shops.each do |shop| %>
   <ul style="list-style:none;">

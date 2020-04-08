@@ -10,3 +10,21 @@ if Rails.env == "development"
     Shop.create(name: "ショップ#{1}", user_id: 1)
   end
 end
+
+99.times do |n|
+  name  = "ryuichi#{n+1}"
+  email = "example-#{n+1}@gmail.com"
+  password = "password"
+  User.create!(name:  name,
+               email: email,
+               password:              password,
+               password_confirmation: password)
+end
+
+users = User.all
+user  = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
+

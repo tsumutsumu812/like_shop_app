@@ -1,3 +1,38 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/* 共通部分 */
+#imagemap {
+	margin: 0px auto;
+	padding: 0px;
+	background: url(/jp.png) top left no-repeat;
+	width: 600px;
+	height: 400px;
+	position: relative;
+}
+#imagemap li {
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	list-style: none;
+	font-size: 14px;
+}
+#imagemap a {
+	position: absolute;
+}
+#imagemap a span {
+	display: none;
+}
+ 
+/* 北海道 */
+#hokkaido {
+	top: 0px;
+	left: 333px;
+}
+#hokkaido a {
+	width: 300px;
+	height: 131px;
+}
+#hokkaido a:hover {
+	background: url(jp.png) -333px -400px no-repeat;
+}

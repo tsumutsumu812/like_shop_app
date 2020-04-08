@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :login_required, only: [:edit, :update]
+before_action :login_required, only: [:edit, :update, :following, :followers]
 before_action :ensure_correct_user, only: [:edit, :update]
 before_action :authenticate_edit_user, only: [:edit, :update, :destroy]
 
@@ -43,6 +43,20 @@ before_action :authenticate_edit_user, only: [:edit, :update, :destroy]
     @user = User.find(params[:id])
     @user.destroy
     redirect_to users_path, notice: "ユーザー#{@user.name}を削除しました。"
+  end
+
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers
+    render 'show_follow'
   end
   
   private

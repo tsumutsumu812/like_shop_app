@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <strong>エリア:</strong>
+  <%= @shop.area %>
+</p>
+
+<p>
   <strong>ジャンル:</strong>
   <%= @shop.genre %>
 </p>
@@ -28,6 +33,11 @@
 <p>
   <strong>詳細説明:</strong>
   <%= @shop.description %>
+</p>
+
+<p>
+  <strong>作成日:</strong>
+  <%= @shop.created_at.to_s(:datetime_jp) %>
 </p>
 
 <p>
