@@ -6,7 +6,8 @@ class ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
-    @shops = Shop.page(params[:page])
+    @q = Shop.ransack(params[:q])
+    @shops = @q.result(distinct: true).page(params[:page])
   end
 
   # GET /shops/1
@@ -33,7 +34,7 @@ class ShopsController < ApplicationController
 
     respond_to do |format|
       if @shop.save
-        format.html { redirect_to @shop, notice: "#{@shop.name}を追加しました。" }
+        format.html { redirect_to @shop, flash: {success: "#{@shop.name}を追加しました。"}}
         format.json { render :show, status: :created, location: @shop }
       else
         format.html { render :new }
@@ -47,7 +48,7 @@ class ShopsController < ApplicationController
   def update
     respond_to do |format|
       if @shop.update(shop_params)
-        format.html { redirect_to @shop, notice: "#{@shop.name}の情報を編集しました。" }
+        format.html { redirect_to @shop, flash:{ success: "#{@shop.name}の情報を編集しました。" }}
         format.json { render :show, status: :ok, location: @shop }
       else
         format.html { render :edit }
@@ -61,7 +62,7 @@ class ShopsController < ApplicationController
   def destroy
     @shop.destroy
     respond_to do |format|
-      format.html { redirect_to shops_url, notice: "#{@shop.name}を削除しました。"  }
+      format.html { redirect_to shops_url, flash: {success: "#{@shop.name}を削除しました。"}}
       format.json { head :no_content }
     end
   end
@@ -79,8 +80,8 @@ class ShopsController < ApplicationController
 
     def authenticate_edit_shop
       @shop = Shop.find(params[:id])
-      if @shop.user_id != @current_user.id
-        redirect_to shops_url, notice: "編集権限がありません"
+      if @shop.user_id != current_user.id && !current_user.admin?
+        redirect_to shops_path, flash: { danger: "編集権限がありません" }
       end
     end
 end

@@ -10,15 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_07_152752) do
+ActiveRecord::Schema.define(version: 2020_04_12_063107) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "shop_id"
-    t.string "name", null: false
+    t.string "title", null: false
     t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["shop_id"], name: "index_comments_on_shop_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -59,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_04_07_152752) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "introduction"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

@@ -49,6 +49,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-commands-rspec'
   gem 'annotate' 
 end
 
@@ -58,6 +59,12 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'rspec-rails', '~> 3.7'
+  gem 'factory_bot_rails'
+  gem 'spring-commands-rspec'
+  gem 'faker'
+  gem 'database_cleaner'
+  gem 'launchy'
 end
 
 group :production do
@@ -73,3 +80,5 @@ gem 'mini_racer'
 gem 'kaminari'
 gem 'carrierwave', '1.2.2'
 gem 'mini_magick', '4.7.0'
+gem 'ransack'
+gem 'jquery-rails', '4.3.1'

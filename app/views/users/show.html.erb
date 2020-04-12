@@ -1,3 +1,5 @@
+
+<%= gravatar_for @user %>
 <h1><%=@user.name%></h1>
 <p><%=@user.introduction%></p>
 
@@ -29,7 +31,7 @@
 <% if current_user %>
   <%if @user.id == current_user.id%>
     <%= link_to "ユーザー設定", edit_user_url(current_user) %>
-    <%= link_to "ユーザー削除", @user, method: :delete, data: {confirm: "削除してもよろしいですか？"} %>
+    <%= link_to "アカウント削除", @user, method: :delete, data: {confirm: "削除してもよろしいですか？"} %>
 
   <%end%>
 <% end %>

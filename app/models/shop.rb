@@ -20,4 +20,11 @@ class Shop < ApplicationRecord
     end
   end
 
+  def self.ransacktable_attributes(auth_object=nil)
+    %w[name]
+  end
+  def self.ransacktable_associations(auth_object=nil)
+    []
+  end
+
 end

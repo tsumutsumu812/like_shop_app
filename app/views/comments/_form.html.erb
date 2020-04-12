@@ -3,8 +3,8 @@
   <%= form_with model: comment do |f| %>
     <%= f.hidden_field :shop_id %>
     <div class="form-group">
-      <%= f.label :name, '名前' %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.label :title, 'タイトル' %>
+      <%= f.text_field :title, class: 'form-control' %>
     </div>
     <div class="form-group">
       <%= f.label :comment, 'コメント' %>
