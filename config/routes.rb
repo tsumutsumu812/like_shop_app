@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   post "likes/:shop_id/create", to: "likes#create"
   post "likes/:shop_id/destroy", to: "likes#destroy"
   resources :relationships, only: [:create, :destroy]
+  get "/timeline", to: "home#timeline"
 end

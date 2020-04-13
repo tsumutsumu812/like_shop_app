@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 before_action :login_required, only: [:edit, :update, :destroy,:following, :followers]
 before_action :ensure_correct_user, only: [:edit, :update]
 before_action :authenticate_edit_user, only: [:edit, :update, :destroy]
+before_action :forbid_login_user, only: [:new, :create]
 
   def index
     @q = User.ransack(params[:q])
@@ -77,4 +78,5 @@ before_action :authenticate_edit_user, only: [:edit, :update, :destroy]
         redirect_to shops_url, flash:{ danger: "編集権限がありません" }
       end
     end
+
 end

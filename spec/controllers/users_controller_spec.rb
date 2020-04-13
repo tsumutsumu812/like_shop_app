@@ -2,10 +2,15 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
   describe "GET #new" do
-    it "returns http success" do
+    it "ユーザー登録ページの表示に成功すること" do
       get :new
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status "200"
     end
+  end
+
+  it "ユーザー一覧ページの表示に成功すること" do
+    get :index
+    expect(response).to have_http_status "200"
   end
 
   describe "error message check" do

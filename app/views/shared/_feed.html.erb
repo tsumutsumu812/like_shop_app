@@ -1,0 +1,7 @@
+<% if @feed_items.any? %>
+  <ol class="shopss">
+    <% @feed_items.each do |feed| %>
+      <li><%= link_to feed.name, shop_path(feed) %> <%= link_to feed.user.name, user_path(feed.user) %></li>
+    <% end %>
+  </ol>
+<% end %>

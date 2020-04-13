@@ -21,7 +21,10 @@
   <div class="col-md-8">
     <h3><%= @title %></h3>
     <% if @users.any? %>
-      <ul class="users follow">
+      <ul class="users follow" style="list-style: none;">
+        <% @users.each do |user| %>
+            <li><%= gravatar_for user %><%= link_to user.name, user %></li>
+          <% end %>
       </ul>
     <% end %>
   </div>

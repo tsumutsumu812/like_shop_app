@@ -93,4 +93,8 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  def log_in(user)
+    session[:user_id] = user.id
+  end
+  config.include Devise::TestHelpers, type: :controller　
 end
