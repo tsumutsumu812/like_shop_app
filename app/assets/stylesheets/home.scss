@@ -36,3 +36,70 @@
 #hokkaido a:hover {
 	background: url(jp.png) -333px -400px no-repeat;
 }
+
+//タイムライン
+.timeline_box{
+  .shop_index{
+    width: 800px;
+    display: grid;
+    gap: 15px;
+    margin: 0 auto;
+  }
+  @media(min-width: 700px){
+    .shop_index{
+      grid-template-columns: 300px 300px 300px;
+    }
+   }
+  .shop_container{
+    border: 1px solid #acabab;
+    display:flex;
+    background-color: rgb(228, 226, 227);
+    width: 300px;
+    height: 400px;
+    padding: 10px;
+    margin-bottom: 10px;
+    &:hover{
+      background: rgb(219, 217, 219);
+    }
+  }
+  // .icon_container{
+  //   display:inline-flex;
+  // }
+  .gravatar{
+    border: 1px solid #a39b9b;
+    border-radius: 40px;
+    height: 40px;
+    width: 40px; 
+    &:hover{
+      opacity: 0.7;
+    }
+  }
+  .shop_text{
+    // margin-left: 10px;
+    overflow: hidden; /* ハミ出した部分を隠す */
+    text-overflow: ellipsis; /* 「…」と省略 */
+    .shop_name{
+      font-size: 30px;
+    }
+    .badge_container{
+      height: 20px;
+    }
+    .users_info{
+      display: inline-flex;
+      margin-top: 15px;
+      .shopper{
+        margin:8px 0 0 7px;
+      }
+    }
+  }
+  .shop_image_container{
+    margin-top: 8px;
+    height: 250px;
+  }
+  .shop_image{
+    width: 270px;
+    height: 250px;
+    margin: 8px auto;
+    border: 5px double #4d4848;
+  }
+}

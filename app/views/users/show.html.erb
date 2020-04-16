@@ -26,22 +26,57 @@
     <h4 class="post_header">投稿一覧</h4>
     <p><%= @user.shops.count %>件</p>
   </div>
-  <% @user.shops.each do |shop| %>
-    <ul style="list-style:none;">
-      <li><%= shop.user.name %></li>
-      <li><%= link_to shop.name, shop %></li>
-    </ul>
-  <% end %>
+
+  <div class="shop_index">
+    <% @user.shops.each do |shop| %>
+      <div class="shop_container">
+        <div class="shop_text">
+          <div class="shop_name"><%= link_to shop.name, shop %></div>
+          <div class="badge_container">
+            <div class="badge badge-info"><%= shop.area %></div>
+            <div class="badge badge-primary"><%= shop.genre %></div>
+            <div class="badge badge-warning"><%= shop.likey %></div>
+          </div>
+          <div class="shop_image_container">
+            <%= image_tag shop.picture.url, class: "shop_image" if shop.picture? %>
+          </div>
+          <div class="users_info">
+            <div class="icon_container">
+              <%= link_to gravatar_for(shop.user), shop.user, class: "icon" %>
+            </div>
+            <div class="shopper"><%= link_to shop.user.name, shop.user %></div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
-<div class="like-box">
+<div class="like_box">
   <h4>いいねした投稿</h4>
-  <% @likes.each do |like| %>
-    <div>
+  <div class="shop_index">
+    <% @likes.each do |like| %>
       <% shop = Shop.find_by(id: like.shop_id)%>
-      <%= link_to(shop.user.name, "/users/#{shop.user.id}") %>
-      <%= link_to(shop.name, "/shops/#{shop.id}") %>
-    </div>
-  <% end %>
+      <div class="shop_container">
+        <div class="shop_text">
+          <div class="shop_name"><%= link_to shop.name, shop %></div>
+          <div class="badge_container">
+            <div class="badge badge-info"><%= shop.area %></div>
+            <div class="badge badge-primary"><%= shop.genre %></div>
+            <div class="badge badge-warning"><%= shop.likey %></div>
+          </div>
+          <div class="shop_image_container">
+            <%= image_tag shop.picture.url, class: "shop_image" if shop.picture? %>
+          </div>
+          <div class="users_info">
+            <div class="icon_container">
+              <%= link_to gravatar_for(shop.user), shop.user, class: "icon" %>
+            </div>
+            <div class="shopper"><%= link_to shop.user.name, shop.user %></div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 

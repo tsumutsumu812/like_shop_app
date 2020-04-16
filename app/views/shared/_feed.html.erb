@@ -1,7 +1,27 @@
 <% if @feed_items.any? %>
-  <ol class="shopss">
-    <% @feed_items.each do |feed| %>
-      <li><%= link_to feed.name, shop_path(feed) %> <%= link_to feed.user.name, user_path(feed.user) %></li>
-    <% end %>
-  </ol>
+  <div class="timeline_box">
+    <div class="shop_index">
+      <% @feed_items.each do |feed| %>
+        <div class="shop_container">
+          <div class="shop_text">
+            <div class="shop_name"><%= link_to feed.name, shop_path(feed) %></div>
+            <div class="badge_container">
+              <div class="badge badge-info"><%= feed.area %></div>
+              <div class="badge badge-primary"><%= feed.genre %></div>
+              <div class="badge badge-warning"><%= feed.likey %></div>
+            </div>
+            <div class="shop_image_container">
+              <%= image_tag feed.picture.url, class: "shop_image" if feed.picture? %>
+            </div>
+            <div class="users_info">
+              <div class="icon_container">
+                <%= link_to gravatar_for(feed.user), feed.user, class: "icon" %>
+              </div>
+              <div class="shopper"><%= link_to feed.user.name, user_path(feed.user) %></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 <% end %>
