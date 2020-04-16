@@ -1,0 +1,101 @@
+// Place all the styles related to the user controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+a{
+  text-decoration:none;
+  color: black;
+  &:hover{
+    color: black;
+  }
+}
+
+// 一覧画面
+.gravatar{
+  border: 2px double #9b7e99;
+  border-radius: 40px;
+  height: 50px;
+  width: 50px; 
+  &:hover{
+    opacity: 0.7;
+  }
+}
+.users{
+  .user_index{
+    width: 800px;
+    display: grid;
+    gap: 15px;
+    margin: 0 auto;
+  }
+  @media(min-width: 1400px){
+    .user_index{
+      grid-template-columns: 300px 300px 300px;
+    }
+  }
+  .user_container{
+    border: 1px solid #acabab;
+    display:flex;
+    background-color: rgb(228, 226, 227);
+    width:300px;
+    height: 170px;
+    padding: 10px;
+    margin-bottom: 10px;
+    &:hover{
+      background: rgb(219, 217, 219);
+    }
+  }
+  .icon_container{
+    display:inline-block;
+  }
+  
+  .user_text{
+    margin-left: 5px;
+    overflow: hidden; /* ハミ出した部分を隠す */
+    text-overflow: ellipsis; /* 「…」と省略 */
+    .users_name{
+      font-size:30px;
+      margin-top: 2px
+    }
+  }
+  
+}
+//詳細画面
+.user_info{
+  margin-bottom: 20px;
+}
+.profile{
+  float: left;
+  margin-right:10px; 
+}
+.user_name{
+  margin: 10px;
+  padding: 10px 
+}
+.introduction{
+  width: 50%;
+}
+.following{
+  margin: 0 15px;
+}
+.post_box{
+  margin-top:30px;
+  .post_header{
+    float: left;
+    margin-right: 10px;
+  }
+  p{
+    padding-top: 5px;
+  }
+}
+.like_box{
+  margin-bottom: 20px;
+}
+
+//ユーザー登録
+.user_btn{
+  margin-left: 400px;
+}
+.form_info{
+  color: #777575;
+  font-size: 12px;
+}

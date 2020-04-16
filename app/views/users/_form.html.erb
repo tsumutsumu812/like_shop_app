@@ -2,22 +2,33 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_with model: @user, local: true do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-      <%= f.label :name, "名前"%>
-      <%= f.text_field :name, class: "form-control" %>
-
-      <%= f.label :email, "メールアドレス" %>
-      <%= f.email_field :email, class: "form-control"  %>
-
-      <%= f.label :introduction, "自己紹介" %>
-      <%= f.text_area :introduction, rows: 5, class: "form-control" %>
-
-      <%= f.label :password, "パスワード" %>
-      <%= f.password_field :password, class: "form-control"  %>
-
-      <%= f.label :password_confirmation, "パスワード(確認)" %>
-      <%= f.password_field :password_confirmation, class: "form-controls"  %>
-
-      <%= f.submit "ユーザー登録", class: "btn btn-primary" %>
+      <div class="form-group">
+        <span class="badge badge-danger">必須</span>
+        <%= f.label :name, "名前"%>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <span class="badge badge-danger">必須</span>
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.email_field :email, class: "form-control"  %>
+      </div>
+      <div class="form-group">
+        <%= f.label :introduction, "自己紹介" %>
+        <span class="form_info">※255文字以内</span>
+        <%= f.text_area :introduction, rows: 5, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <span class="badge badge-danger">必須</span>
+        <%= f.label :password, "パスワード" %>
+        <span class="form_info">※6文字以上</span>
+        <%= f.password_field :password, class: "form-control"  %>
+      </div>
+      <div class="form-group">
+        <span class="badge badge-danger">必須</span>
+        <%= f.label :password_confirmation, "パスワード(確認)" %>
+        <%= f.password_field :password_confirmation, class: "form-control"  %>
+      </div>
+      <%= f.submit "ユーザー登録", class: "btn btn-primary user_btn" %>
     <% end %>
   </div>
 </div>

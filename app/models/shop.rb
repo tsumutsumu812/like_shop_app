@@ -1,7 +1,10 @@
 class Shop < ApplicationRecord
-  validates :name, presence: true, length: { maximum: 20}
+  validates :name, presence: true, length: { maximum: 30}
+  validates :area, length: { maximum: 10}
   validates :genre, length: { maximum: 10}
   validates :address, length: { maximum: 50}
+  validates :likey, length: { maximum: 50}
+  validates :description, length: { maximum: 500 }
   validate :picture_size
   belongs_to :user
   default_scope -> { order(created_at: :desc) }

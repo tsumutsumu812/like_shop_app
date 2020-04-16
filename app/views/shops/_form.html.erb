@@ -1,47 +1,59 @@
-<%= form_with(model: shop, local: true) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.label :name, "店名" %>
-    <%= f.text_field :name %>
-  </div>
+<div class="shop_form">
+  <%= form_with(model: shop, local: true) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="form-group">
+      <span class="badge badge-danger">必須</span>
+      <%= f.label :name, "店名" %>
+      <span class="form_info">※50文字以内</span>
+      <%= f.text_field :name, class:"form-control col-sm-4"%>
+    </div>
 
-  <div class="field">
-    <%= f.label :area, "エリア" %>
-    <%= f.text_field :area %>
-  </div>
+    <div class="form-group">
+      <%= f.label :area, "エリア" %>
+      <span class="form_info">※10文字以内</span>
+      <%= f.text_field :area, class:"form-control col-sm-4" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :genre, "ジャンル" %>
-    <%= f.text_field :genre %>
-  </div>
+    <div class="form-group">
+      <%= f.label :genre, "ジャンル" %>
+      <span class="form_info">※10文字以内</span>
+      <%= f.text_field :genre, class:"form-control col-sm-4" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :address, "住所" %>
-    <%= f.text_field :address %>
-  </div>
+    <div class="form-group">
+      <%= f.label :address, "住所" %>
+      <span class="form_info">※50文字以内</span>
+      <%= f.text_field :address, class:"form-control col-sm-4" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :likey, "お気に入り" %>
-    <%= f.text_field :likey %>
-  </div>
+    <div class="form-group">
+      <%= f.label :likey, "お気に入り" %>
+      <span class="form_info">※50文字以内</span>
+      <%= f.text_field :likey, class:"form-control col-sm-4" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :description, "詳細"%>
-    <%= f.text_area :description %>
-  </div>
+    <div class="form-group">
+      <%= f.label :description, "詳細"%>
+      <span class="form_info">※500文字以内</span>
+      <%= f.text_area :description, rows:5, class:"form-control col-sm-7" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :url, "URL"%>
-    <%= f.text_field :url %>
-  </div>
+    <div class="form-group">
+      <%= f.label :url, "URL"%>
+      <%= f.text_field :url, class:"form-control col-sm-7"%>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-  <span class="picture">
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-  </span>
-<% end %>
+    <p>画像添付</p>
+    <span class="picture">
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+    </span>
+
+    <div class="shop_btn">
+      <%= f.submit "投稿する" ,class:"btn btn-info"%>
+    </div>
+    
+  <% end %>
+
 
 <script type="text/javascript">
   $('#shop_picture').bind('change', function() {

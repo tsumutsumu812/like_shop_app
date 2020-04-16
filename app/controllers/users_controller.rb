@@ -35,7 +35,7 @@ before_action :forbid_login_user, only: [:new, :create]
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to @user, flash:{ success: "ユーザーを#{@user.name}変更しました。" }
+      redirect_to @user, flash:{ success: "ユーザー#{@user.name}を変更しました。" }
     else
       render :edit
     end
@@ -67,7 +67,7 @@ before_action :forbid_login_user, only: [:new, :create]
     end
 
     def  ensure_correct_user
-      if current_user.id != params[:id].to_i
+      if current_user.id != params[:id].to_i && !current_user.admin?
         redirect_to shops_path, flash:{ danger: "権限がありません" }
       end
     end

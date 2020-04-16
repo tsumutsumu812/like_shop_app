@@ -1,57 +1,44 @@
-<h1>My Shops</h1>
+<div class="shops">
+  <h1>My Shops</h1>
 
-<%= search_form_for @q, class:"mb-5" do |f| %>
-  <div class="form-group row">
-    <%= f.label :name_cont, "店名", class: "col-sm-2 col-form-label" %>
-    <div class="col-sm-10">
-      <%= f.search_field :name_cont, class: "form-control" %>
+  <%= search_form_for @q, class:"mb-5" do |f| %>
+    <div class="form-group row">
+      <%= f.label :name_cont, "店名", class: "col-sm-1 col-form-label" %>
+      <div class="col-sm-3">
+        <%= f.search_field :name_cont, class: "form-control" %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.submit class: "btn btn-outline-primary" %>
-  </div>
-<% end %>
+    <div class="form-group">
+      <%= f.submit class: "btn btn-outline-primary" %>
+    </div>
+  <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>投稿者</th>
-      <th>店名</th>
-      <th>ジャンル</th>
-      <th>住所</th>
-      <th>お気に入り商品</th>
-      <% if current_user %>
-        <% if current_user.admin? %>
-          <th>管理者権限</th>
-        <% end %>
-      <% end %>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="shop_index">
     <% @shops.each do |shop| %>
-      <tr>
-        <td><%= link_to shop.user.name, shop.user %></td>
-        <td><%= link_to shop.name, shop %></td>
-        <td><%= shop.genre %></td>
-        <td><%= shop.address %></td>
-        <td><%= shop.likey %></td>
-        <td>
-          <% if current_user %>
-            <% if current_user.admin? %>
-              <th>
-                <%= link_to '削除', shop, method: :delete, data: { confirm: 'この投稿を削除しますか?' } %>
-              </th>
-            <% end %>
-          <% end %>
-        </td>
-      </tr>
+      <div class="shop_container">
+        <div class="shop_text">
+          <div class="shop_name"><%= link_to shop.name, shop %></div>
+          <div class="badge_container">
+            <div class="badge badge-info"><%= shop.area %></div>
+            <div class="badge badge-primary"><%= shop.genre %></div>
+            <div class="badge badge-warning"><%= shop.likey %></div>
+          </div>
+          <div class="shop_image_container">
+            <%= image_tag shop.picture.url, class: "shop_image" if shop.picture? %>
+          </div>
+          <div class="users_info">
+            <div class="icon_container">
+              <%= link_to gravatar_for(shop.user), shop.user, class: "icon" %>
+            </div>
+            <div class="shopper"><%= link_to shop.user.name, shop.user %></div>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+  <%= paginate @shops %>
 
-<%= paginate @shops %>
+  <br>
 
-<br>
-
-<%= link_to '新規投稿', new_shop_path, class: 'btn btn-primary' %>
+  <%= link_to '新規投稿', new_shop_path, class: 'btn btn-primary' %>
+</div>
