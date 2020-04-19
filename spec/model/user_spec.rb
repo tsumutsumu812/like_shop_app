@@ -17,23 +17,38 @@ RSpec.describe User, type: :model do
   context "名前が空の時" do
     it "バリデーションエラーが発生すること" do
       user.name=" "
+      user.valid?
       expect(user.errors[:name]).to include("を入力してください") 
     end
   end
 
   context "メールアドレスが記入されていない時" do
-    it "値が入っていない" do
+    it "バリデーションエラーが発生すること" do
       user.email = " "
       expect(user).to be_invalid
     end
+    it "エラー文が表示されること" do
+      user.email = " "
+      user.valid?
+      expect(user.errors[:email]).to include("を入力してください")
+    end
   end
 
-  context "when email address should be unique" do
-    it "一意の値となるか" do
+  context "メールアドレスが一意の値にならない時" do
+    it "バリデーショネラーが発生すること" do
       duplicate_user = user.dup
       duplicate_user.email = user.email
       user.save!
       expect(duplicate_user).to be_invalid
+    end
+  end
+
+  context "自己紹介が255字以上の時" do
+    it "バリデーションエラーが発生すること" do
+      user.introduction = "a" * 257
+      expect(user).to be_invalid
+      user.introduction = "a" * 256
+      expect(user).to be_valid
     end
   end
   

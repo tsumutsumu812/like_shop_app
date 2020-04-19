@@ -1,57 +1,58 @@
-<div class="shop_header">
-  <div class="shop_header_flex">
-    <div class="shop_name"><h1><%= @shop.name %></h1></div>
+<div clsss="shop_introduction"> 
+  <div class="shop_header">
+    <div class="shop_header_flex">
+      <div class="shop_name"><h1><%= @shop.name %></h1></div>
+    </div>
   </div>
-</div>
 
-<div class="shop_detail"> 
-  <div class="shop_image_container">
-    <% if @shop.picture?%>
-      <%= image_tag @shop.picture.url, class: "shop_image" %>
-    <%else%>
-      <%= image_tag '/noimage.png', class:"shop_image"%>
-    <%end%>
-  </div>
-  <div class="shop_detail_text">
-    <div class="shop_container">
-      <div class="shop_text">
-        <div class="badge_container">
-          <div class="badge badge-info"><%= @shop.area %></div>
-          <div class="badge badge-primary"><%= @shop.genre %></div>
-          <div class="badge badge-warning"><%= @shop.likey %></div>
-        </div>
-        <p>
-          <strong>住所:</strong>
-          <%= @shop.address %>
-        </p>
-
-        <p>
-          <strong>作成日:</strong>
-          <%= @shop.created_at.to_s(:datetime_jp) %>
-        </p>
-
-        <p>
-          <strong>URL:</strong>
-          <a href="<%= @shop.url %>" target="_blank"><%= @shop.url %></a>
-        </p>
-        <p>この投稿をした人</p>
-        <div class="users_info">
-          <div class="icon_container">
-            <%= link_to gravatar_for(@shop.user), @shop.user, class: "icon" %>
+  <div class="shop_detail"> 
+    <div class="shop_image_container">
+      <% if @shop.picture?%>
+        <%= image_tag @shop.picture.url, class: "shop_image" %>
+      <%else%>
+        <%= image_tag '/noimage.png', class:"shop_image"%>
+      <%end%>
+    </div>
+    <div class="shop_detail_text">
+      <div class="shop_container">
+        <div class="shop_text">
+          <div class="badge_container">
+            <div class="badge badge-info"><%= @shop.area %></div>
+            <div class="badge badge-primary"><%= @shop.genre %></div>
+            <div class="badge badge-warning"><%= @shop.likey %></div>
           </div>
-          <div class="shopper"><%= link_to @shop.user.name, @shop.user %></div>
+          <p>
+            <strong>住所:</strong>
+            <%= @shop.address %>
+          </p>
+
+          <p>
+            <strong>作成日:</strong>
+            <%= @shop.created_at.to_s(:datetime_jp) %>
+          </p>
+
+          <p>
+            <strong>URL:</strong>
+            <a href="<%= @shop.url %>" target="_blank"><%= @shop.url %></a>
+          </p>
+          <p>この投稿をした人</p>
+          <div class="users_info">
+            <div class="icon_container">
+              <%= link_to gravatar_for(@shop.user), @shop.user, class: "icon" %>
+            </div>
+            <div class="shopper"><%= link_to @shop.user.name, @shop.user %></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="description">
+    <p>
+      <strong>詳細説明:</strong>
+      <%= @shop.description %>
+    </p>
+  </div>
 </div>
-<div class="description">
-  <p>
-    <strong>詳細説明:</strong>
-    <%= @shop.description %>
-  </p>
-</div>
-
 
 <% if current_user %>
   <div class="like_btn">

@@ -1,9 +1,9 @@
 ja:
   activerecord:
     models: 
-      shop: ショップ
-      user: アカウント
-      comment: コメント
+        shop: ショップ
+        user: アカウント
+        comment: コメント
     attributes:
       shop:
         name: 名前
@@ -220,14 +220,6 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
-  attributes:
-    user:
-      name: 名前
-      age: 年齢
-      password: パスワード
-      password_confirmation: パスワード(確認)
-      created_at: 作成日
-      updated_at: 更新日
   views: 
     pagination:
       first: 最初
@@ -235,11 +227,4 @@ ja:
       previous: 前
       next: 次
       truncate: "..."
-    page_entries_info:
-      one_page:
-        display_entries:
-          zero: "%{entry_name}がありません"
-          one: 1件の"%{entry_name}が表示されています"
-          other: "%{count}件の%{entry_name}が表示されています"
-      morepage:
-        display_entries: "全%{total}件中 %{first} &nbsp%;-&nbsp%; {%last}件の%{entry_name}が表示されています"
+   
