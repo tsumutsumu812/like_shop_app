@@ -2,10 +2,11 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <%= gravatar_for @user %>
-      <h1><%= @user.name %></h1>
-      <span><%= link_to "#{@user.name}のプロフィール", @user %></span>
-      <span><b>投稿一覧:</b> <%= @user.shops.count %></span>
+      <%= link_to gravatar_for(@user), @user %>
+      <div class="host_user">
+        <h3><%= link_to @user.name , @user%></h3>
+      </div>
+      <span><b>投稿数　</b> <%= @user.shops.count %>件</span>
     </section>
     <section class="stats">
       <%= render 'shared/stats' %>
@@ -23,8 +24,16 @@
     <% if @users.any? %>
       <ul class="users follow" style="list-style: none;">
         <% @users.each do |user| %>
-            <li><%= gravatar_for user %><%= link_to user.name, user %></li>
-          <% end %>
+          <div class="user_container">
+            <div class="icon_container">
+              <%= link_to gravatar_for(user), user, class: "icon" %>
+            </div>
+            <div class="user_text">
+              <div class="users_name"><%= link_to user.name, user %></div>
+              <div><%= user.introduction %></div>
+            </div>
+          </div>  
+        <% end %>
       </ul>
     <% end %>
   </div>

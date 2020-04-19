@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :login_required, only: [:edit, :update, :destroy,:following, :followers]
+before_action :login_required, only: [:edit, :update, :destroy, :following, :followers]
 before_action :ensure_correct_user, only: [:edit, :update]
 before_action :authenticate_edit_user, only: [:edit, :update, :destroy]
 before_action :forbid_login_user, only: [:new, :create]
@@ -48,14 +48,14 @@ before_action :forbid_login_user, only: [:new, :create]
   end
 
   def following
-    @title = "Following"
+    @title = "フォロー中"
     @user  = User.find(params[:id])
     @users = @user.following
     render 'show_follow'
   end
 
   def followers
-    @title = "Followers"
+    @title = "フォロワー"
     @user  = User.find(params[:id])
     @users = @user.followers
     render 'show_follow'

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :login_required, only: [:create, :destroy]
-  before_action :delete_authente, only: [:destroy]
+  before_action :delete_authenticate, only: [:destroy]
 
   def create
     comment = current_user.comments.new(comment_params)
@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
 
   private
    def comment_params
-    params.require(:comment).permit(:shop_id, :title, :comment)
+    params.require(:comment).permit(:shop_id, :comment)
   end
 
   def delete_authenticate

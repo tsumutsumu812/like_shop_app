@@ -20,7 +20,18 @@ a{
 
 
 // 一覧画面
+.search_shop_form{
+  border: 3px solid rgb(22, 151, 236);
+  padding: 15px;
+  margin: 15px auto;
+  width: 700px;
+  height:140px;
+}
+
 .shops{
+  h1{
+    text-align: center;
+  }
   .shop_index{
     width: 800px;
     display: grid;
@@ -91,6 +102,51 @@ a{
 //フォーム
 .shop_form{
   .shop_btn{
-    margin: 10px 0 400px 40px;
+    margin: 10px 0 10px 240px;
   }
+}
+
+
+//詳細画面
+.shop_header{
+  border: 3px solid #000000;
+  background-color: #383535; 
+  color: rgb(236, 230, 230);
+  width:745px;
+  text-align: center;
+}
+.shop_detail{
+  display: inline-flex;
+  border: 3px solid rgb(89, 92, 107);
+  padding:20px;
+  .shop_image_container{
+    margin-top: 8px;
+    height: 250px;
+  }
+  .shop_image{
+    width: 270px;
+    height: 250px;
+    margin: 8px auto;
+    border: 5px double #4d4848;
+  }
+  .shop_detail_text{
+    padding:20px;
+    .users_info{
+      display: inline-flex;
+      .shopper{
+        font-size: 20px;
+        margin: 8px;
+      }
+    }
+  }
+}
+.description{
+  border: 3px solid #000000;
+  padding:10px;
+  width: 745px;
+}
+
+.like_btn{
+  font-size: 20px;
+  margin:20px;
 }

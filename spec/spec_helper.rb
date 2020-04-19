@@ -96,5 +96,4 @@ RSpec.configure do |config|
   def log_in(user)
     session[:user_id] = user.id
   end
-  config.include Devise::TestHelpers, type: :controller　
 end

@@ -16,6 +16,10 @@
 .p-comment__listTitle {
   border-bottom: 2px solid #dfdfdf;
   padding-bottom: 5px;
+  span{
+    font-size: 15px;
+    margin-left: 8px;
+  }
 }
 
 .p-comment__list {
@@ -36,4 +40,33 @@
     font-size: 14px;
     margin: 0 12px;
   }
+}
+
+
+.balloon {
+  position: relative;
+  display: inline-block;
+  margin: 15px 0 2em 25px;
+  padding: 3px 13px;
+  min-width: 20px;
+  max-width: 300px;
+  color: rgb(34, 31, 31);
+  font-size: 16px;
+  background-color: rgb(61, 226, 255);
+  border-radius: 15px;
+}
+
+.balloon:before {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: -30px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 26px solid rgb(61, 226, 255);
+  -webkit-transform: rotate(20deg);
+  transform: rotate(20deg);
+}
+.info_name{
+  padding-left: 7px;
 }

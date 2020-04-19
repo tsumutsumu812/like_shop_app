@@ -25,7 +25,6 @@ RSpec.describe HomeController, type: :controller do
     context "ログイン状態でタイムラインページへのアクセス時" do
       before do
         @user = FactoryBot.create(:user)
-
       end
       it "タイムラインページの表示に成功すること" do
         log_in @user
@@ -34,5 +33,4 @@ RSpec.describe HomeController, type: :controller do
       end
     end
   end
-
 end

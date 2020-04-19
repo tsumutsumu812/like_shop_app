@@ -1,9 +1,9 @@
-<h1>Editing Shop</h1>
+<h1>投稿編集</h1>
 
 <%= render 'form', shop: @shop %>
 <% if current_user %>
   <% if current_user.admin? %>
-    <%= link_to '削除', @shop, method: :delete, data: { confirm: 'この投稿を削除しますか?' } %>
+    <%= link_to '削除', @shop, class:"btn btn-danger", method: :delete, data: { confirm: 'この投稿を削除しますか?' } %>
   <% end %>
 <% end %>
-<%= link_to '詳細', @shop %> 
+<%= link_to '詳細に戻る', @shop, class:"btn btn-primary" %> 

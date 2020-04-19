@@ -21,6 +21,9 @@ a{
   }
 }
 .users{
+  .users_header{
+    margin-left:180px;
+  }
   .user_index{
     width: 800px;
     display: grid;
@@ -166,5 +169,42 @@ a{
     height: 250px;
     margin: 8px auto;
     border: 5px double #4d4848;
+  }
+}
+
+//フォロー画面
+.host_user{
+  width: 300px;
+  word-wrap: break-word;
+}
+.user_avatars{
+  margin-top: 20px;
+}
+
+.follow{
+  .user_container{
+    border: 1px solid #acabab;
+    display:flex;
+    background-color: rgb(228, 226, 227);
+    width:400px;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    &:hover{
+      background: rgb(219, 217, 219);
+    }
+  }
+  .icon_container{
+    display:inline-block;
+  }
+  
+  .user_text{
+    margin-left: 5px;
+    overflow: hidden; /* ハミ出した部分を隠す */
+    text-overflow: ellipsis; /* 「…」と省略 */
+    .users_name{
+      font-size:30px;
+      margin-top: 2px
+    }
   }
 }

@@ -1,52 +1,60 @@
-<p>
-  <strong>投稿者:</strong>
-  <%= @user.name %>
-</p>
+<div class="shop_header">
+  <div class="shop_header_flex">
+    <div class="shop_name"><h1><%= @shop.name %></h1></div>
+  </div>
+</div>
 
-<p>
-  <strong>店名:</strong>
-  <%= @shop.name %>
-</p>
+<div class="shop_detail"> 
+  <div class="shop_image_container">
+    <% if @shop.picture?%>
+      <%= image_tag @shop.picture.url, class: "shop_image" %>
+    <%else%>
+      <%= image_tag '/noimage.png', class:"shop_image"%>
+    <%end%>
+  </div>
+  <div class="shop_detail_text">
+    <div class="shop_container">
+      <div class="shop_text">
+        <div class="badge_container">
+          <div class="badge badge-info"><%= @shop.area %></div>
+          <div class="badge badge-primary"><%= @shop.genre %></div>
+          <div class="badge badge-warning"><%= @shop.likey %></div>
+        </div>
+        <p>
+          <strong>住所:</strong>
+          <%= @shop.address %>
+        </p>
 
-<p>
-  <strong>エリア:</strong>
-  <%= @shop.area %>
-</p>
+        <p>
+          <strong>作成日:</strong>
+          <%= @shop.created_at.to_s(:datetime_jp) %>
+        </p>
 
-<p>
-  <strong>ジャンル:</strong>
-  <%= @shop.genre %>
-</p>
+        <p>
+          <strong>URL:</strong>
+          <a href="<%= @shop.url %>" target="_blank"><%= @shop.url %></a>
+        </p>
+        <p>この投稿をした人</p>
+        <div class="users_info">
+          <div class="icon_container">
+            <%= link_to gravatar_for(@shop.user), @shop.user, class: "icon" %>
+          </div>
+          <div class="shopper"><%= link_to @shop.user.name, @shop.user %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="description">
+  <p>
+    <strong>詳細説明:</strong>
+    <%= @shop.description %>
+  </p>
+</div>
 
-<p>
-  <strong>住所:</strong>
-  <%= @shop.address %>
-</p>
-
-<p>
-  <strong>お気に入り:</strong>
-  <%= @shop.likey %>
-</p>
-
-<p>
-  <strong>詳細説明:</strong>
-  <%= @shop.description %>
-</p>
-
-<p>
-  <strong>作成日:</strong>
-  <%= @shop.created_at.to_s(:datetime_jp) %>
-</p>
-
-<p>
-  <strong>URL:</strong>
-  <a href="<%= @shop.url %>" target="_blank"><%= @shop.url %></a>
-</p>
-
-<%= image_tag @shop.picture.url if @shop.picture? %>
 
 <% if current_user %>
-  <div>
+  <div class="like_btn">
     <% if Like.find_by(user_id: current_user.id, shop_id: @shop.id) %>
       <%= link_to "/likes/#{@shop.id}/destroy", {method: "post"} do%>
         <span class="fa fa-heart like-btn-unlike"></span>
@@ -57,19 +65,21 @@
       <% end %>
     <% end %>
     <%= @likes_count %>
-    <% if @shop.user_id == current_user.id %>
-      <%= link_to '編集', edit_shop_path(@shop) %> 
-      <%= link_to '削除', @shop, method: :delete, data: { confirm: 'この投稿を削除しますか?' } %>
-    <% end %>
   </div>
 <% end %>
 
-
-<%= link_to '一覧へ', shops_path %>
+<% if current_user %>
+  <% if @shop.user_id == current_user.id %>
+    <div class="edit_user">
+      <%= link_to '編集', edit_shop_path(@shop) ,class:"btn btn-primary"%> 
+      <%= link_to '削除', @shop, class:"btn btn-danger", method: :delete, data: { confirm: 'この投稿を削除しますか?' } %>
+    </div>
+  <% end %>
+<% end %>
 
 
 <div class="p-comment__list">
-  <div class="p-comment_listTitle">コメント一覧 <%= @shop.comments.count %> 件</div>
+  <div class="p-comment__listTitle"><h4>コメント一覧<span><%= @shop.comments.count %> 件</span></h4> </div>
   <%= render @shop.comments %>
 </div>
 

@@ -38,7 +38,11 @@
             <div class="badge badge-warning"><%= shop.likey %></div>
           </div>
           <div class="shop_image_container">
-            <%= image_tag shop.picture.url, class: "shop_image" if shop.picture? %>
+            <% if shop.picture?%>
+              <%= image_tag shop.picture.url, class: "shop_image" %>
+            <%else%>
+              <%= image_tag '/noimage.png', class:"shop_image"%>
+            <%end%>
           </div>
           <div class="users_info">
             <div class="icon_container">
@@ -66,7 +70,11 @@
             <div class="badge badge-warning"><%= shop.likey %></div>
           </div>
           <div class="shop_image_container">
-            <%= image_tag shop.picture.url, class: "shop_image" if shop.picture? %>
+            <% if shop.picture?%>
+              <%= image_tag shop.picture.url, class: "shop_image" %>
+            <%else%>
+              <%= image_tag '/noimage.png', class:"shop_image"%>
+            <%end%>
           </div>
           <div class="users_info">
             <div class="icon_container">

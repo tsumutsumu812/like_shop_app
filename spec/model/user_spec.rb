@@ -8,10 +8,20 @@ RSpec.describe User, type: :model do
     FactoryBot.build(:user)
   end
 
-  context "when use is valid" do
-    it "値が入っている" do
+  context "全ての値が正常に入っている時" do
+    it "バリデーションに成功すること" do
       expect(user).to be_valid
     end
+  end
+
+  context "名前が空の時" do
+    it "バリデーションエラーが発生すること" do
+      user.name=" "
+      expect(user.errors[:name]).to include("を入力してください") 
+    end
+  end
+
+  context "メールアドレスが記入されていない時" do
     it "値が入っていない" do
       user.email = " "
       expect(user).to be_invalid

@@ -11,7 +11,11 @@
               <div class="badge badge-warning"><%= feed.likey %></div>
             </div>
             <div class="shop_image_container">
-              <%= image_tag feed.picture.url, class: "shop_image" if feed.picture? %>
+              <% if feed.picture?%>
+                <%= image_tag feed.picture.url, class: "shop_image" %>
+              <%else%>
+                <%= image_tag '/noimage.png', class:"shop_image"%>
+              <%end%>
             </div>
             <div class="users_info">
               <div class="icon_container">
