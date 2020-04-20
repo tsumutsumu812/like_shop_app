@@ -112,13 +112,14 @@ a{
   border: 3px solid #000000;
   background-color: #383535; 
   color: rgb(236, 230, 230);
-  width:745px;
   text-align: center;
+  width: 50%;
 }
 .shop_detail{
   display: inline-flex;
   border: 3px solid rgb(89, 92, 107);
   padding:20px;
+  width: 50%;
   .shop_image_container{
     margin-top: 8px;
     height: 250px;
@@ -143,7 +144,8 @@ a{
 .description{
   border: 3px solid #000000;
   padding:10px;
-  width: 745px;
+  width: 50%;
+
 }
 
 .like_btn{

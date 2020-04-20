@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :email, presence:true, uniqueness: { case_sensitive: false },
              length: { maximum: 100 },
              format: { with: VALID_EMAIL_REGEX }
-  validates :introduction, length: { maximum: 255 }
+  validates :introduction, length: { maximum: 256 }
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   default_scope -> { order(created_at: :desc) }
   has_many :shops, dependent: :destroy

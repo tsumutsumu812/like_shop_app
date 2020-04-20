@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'mysql2', '>= 0.3.18', '< 0.6.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -36,7 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  # gem 'sqlite3', '~> 1.3.6'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rails-flog', require: 'flog'
@@ -68,8 +70,9 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.20.0'
-  gem 'fog', '1.42'
+  # gem 'pg', '0.20.0'
+  # gem 'fog', '1.42'
+  gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 end
 
 group :production, :staging do
