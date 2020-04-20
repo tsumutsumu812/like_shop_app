@@ -24,4 +24,4 @@
    <<: *default
    database: like_shop_app_production
    username: root
-   password: <%= ENV['like_shop_app__DATABASE_PASSWORD'] %>
+   password: 

@@ -113,13 +113,11 @@ a{
   background-color: #383535; 
   color: rgb(236, 230, 230);
   text-align: center;
-  width: 50%;
 }
 .shop_detail{
   display: inline-flex;
   border: 3px solid rgb(89, 92, 107);
   padding:20px;
-  width: 50%;
   .shop_image_container{
     margin-top: 8px;
     height: 250px;
@@ -142,12 +140,22 @@ a{
   }
 }
 .description{
-  border: 3px solid #000000;
+  border: 3px solid #6e6969;
   padding:10px;
-  width: 50%;
-
 }
-
+.mapping{
+  height: 350px;
+  width: 400px;
+  margin: 30px;
+  border: 3px solid #585656;
+}
+.address{
+  margin: 30px 0 0 50px;
+  height: 8px;
+}
+.fa-map-marker-alt{
+  margin:4px;
+}
 .like_btn{
   font-size: 20px;
   margin:20px;
