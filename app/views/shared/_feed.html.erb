@@ -19,7 +19,11 @@
             </div>
             <div class="users_info">
               <div class="icon_container">
-                <%= link_to gravatar_for(feed.user), feed.user, class: "icon" %>
+                <% if feed.user.picture? %>
+                  <%= link_to image_tag(feed.user.picture.url, class:"gravatar icon"), feed.user%>
+                <% else %>
+                  <%= link_to gravatar_for(feed.user), feed.user, class: "icon" %>
+                <% end %>
               </div>
               <div class="shopper"><%= link_to feed.user.name, user_path(feed.user) %></div>
             </div>

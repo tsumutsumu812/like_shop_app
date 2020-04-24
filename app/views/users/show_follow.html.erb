@@ -2,7 +2,11 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <%= link_to gravatar_for(@user), @user %>
+      <% if @user.picture? %>
+        <%= link_to image_tag(@user.picture.url, class:"gravatar icon"), @user%>
+      <% else %>
+        <%= link_to gravatar_for(@user), @user %>
+      <% end %>     
       <div class="host_user">
         <h3><%= link_to @user.name , @user%></h3>
       </div>
@@ -13,7 +17,11 @@
       <% if @users.any? %>
         <div class="user_avatars">
           <% @users.each do |user| %>
-            <%= link_to gravatar_for(user, size: 30), user %>
+            <% if user.picture? %>
+              <%= link_to image_tag(user.picture.url, class:"gravatar icon"), user%>
+            <% else %>
+              <%= link_to gravatar_for(user, size: 30), user %>
+            <% end %>
           <% end %>
         </div>
       <% end %>
@@ -26,7 +34,11 @@
         <% @users.each do |user| %>
           <div class="user_container">
             <div class="icon_container">
-              <%= link_to gravatar_for(user), user, class: "icon" %>
+              <% if user.picture? %>
+                <%= link_to image_tag(user.picture.url, class:"gravatar icon"), user%>
+              <% else %>
+                <%= link_to gravatar_for(user), user, class: "icon" %>
+              <% end %>
             </div>
             <div class="user_text">
               <div class="users_name"><%= link_to user.name, user %></div>

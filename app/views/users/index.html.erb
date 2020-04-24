@@ -23,7 +23,11 @@
     <% @users.each do |user| %>
       <div class="user_container">
         <div class="icon_container">
-          <%= link_to gravatar_for(user), user, class: "icon" %>
+          <% if user.picture? %>
+            <%= link_to image_tag(user.picture.url, class:"gravatar icon"), user%>
+          <% else %>
+            <%= link_to gravatar_for(user), user, class: "icon" %>
+          <% end %>
         </div>
         <div class="user_text">
           <div class="users_name"><%= link_to user.name, user %></div>

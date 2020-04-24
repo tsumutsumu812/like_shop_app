@@ -8,6 +8,12 @@
         <%= f.text_field :name, class: "form-control" %>
       </div>
       <div class="form-group">
+        <p>ユーザー画像</p>
+        <span class="picture">
+          <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+        </span>      
+      </div>
+      <div class="form-group">
         <span class="badge badge-danger">必須</span>
         <%= f.label :email, "メールアドレス" %>
         <%= f.email_field :email, class: "form-control"  %>
@@ -32,3 +38,12 @@
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('#micropost_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>
