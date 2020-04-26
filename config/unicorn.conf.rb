@@ -1,4 +1,4 @@
-$worker  = 2
+  $worker  = 2
   $timeout = 30
   $app_dir = "/var/www/rails/like_shop_app"
   $listen  = File.expand_path 'tmp/sockets/.unicorn.sock', $app_dir
