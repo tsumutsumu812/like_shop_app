@@ -1,8 +1,48 @@
 <% provide(:title, "トップ") %>
 
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<div>
+</div>
 
-<button id ="bb">aa</button>
-<p id="aa">acc</p>
+<h1 class="page_title">YouLike</h1>
 
+<div class="concept">
+  <h3>〜きっと出会えるあなたのお気に入り〜</h3>
+</div>
+
+<div class="page_description">
+  <p>
+    ショッピングへ出かける時、どんなお店があるの知りたい
+    お店の雰囲気を知りたい<br>
+    そんな時は「YouLike」でお店を検索してみましょう<br>
+    あなたのお気に入りをさがしてみましょう<br>
+    お気に入りに出会えたら今度はお店をみんなにシェアしてみましょう<br>
+  </p>
+</div>
+
+<%if !current_user%>
+<div class="row btn_top">
+  <div n_g>
+    <p>登録はこちらから
+    <div class="new_group row">
+      <div>
+        <button class="btn">
+          <%= link_to "新規ユーザー登録", new_user_path %>
+        </button>
+      </div>
+      <div>
+        <button class="btn">
+          <%= link_to "ログイン", login_path  %>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="ex_g">
+    <p>まずは見てみる
+    <div class="experience">
+      <button class="btn">
+        <%= link_to "投稿を見る", shops_path  %>
+      </button>
+    </div>
+  </div>
+</div>
+<% end %>

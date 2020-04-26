@@ -5,31 +5,36 @@
       <span class="badge badge-danger">必須</span>
       <%= f.label :name, "店名" %>
       <span class="form_info">※50文字以内</span>
-      <%= f.text_field :name, class:"form-control col-sm-4"%>
+      <%= f.text_field :name, class:"form-control col-sm-5"%>
     </div>
 
     <div class="form-group">
       <%= f.label :area, "エリア" %>
       <span class="form_info">※10文字以内</span>
-      <%= f.text_field :area, class:"form-control col-sm-4" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :genre, "ジャンル" %>
-      <span class="form_info">※10文字以内</span>
-      <%= f.text_field :genre, class:"form-control col-sm-4" %>
+      <%= f.text_field :area, class:"form-control col-sm-5" %>
     </div>
 
     <div class="form-group">
       <%= f.label :address, "住所" %>
       <span class="form_info">※50文字以内</span>
-      <%= f.text_field :address, class:"form-control col-sm-4" %>
+      <%= f.text_field :address, class:"form-control col-sm-5", id:"id_address" %>
+    </div>
+
+    <div class="map_get">
+      <p>地図上をクリックして住所を取得することも可能です</p>
+      <div id="input_map"></div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :genre, "ジャンル" %>
+      <span class="form_info">※10文字以内</span>
+      <%= f.text_field :genre, class:"form-control col-sm-5" %>
     </div>
 
     <div class="form-group">
       <%= f.label :likey, "お気に入り" %>
       <span class="form_info">※50文字以内</span>
-      <%= f.text_field :likey, class:"form-control col-sm-4" %>
+      <%= f.text_field :likey, class:"form-control col-sm-5" %>
     </div>
 
     <div class="form-group">
@@ -62,4 +67,61 @@
       alert('Maximum file size is 5MB. Please choose a smaller file.');
     }
   });
+</script>
+
+<script type="text/javascript">
+  
+  function initMap(){
+    var map;
+    var Marker;
+    var mapping = document.getElementById('input_map')
+    var tokyo = {lat: 35.670092,lng: 139.702663}
+    var mapOptions = {
+      zoom: 8,      //地図の縮尺値
+      center: tokyo,    //地図の中心座標
+      mapTypeId: 'roadmap'   //地図の種類
+    };
+    map = new google.maps.Map(mapping, mapOptions);
+    
+    google.maps.event.addListener(map, 'click',
+      function(event) {
+        if (Marker){Marker.setMap(null)};
+          Marker = new google.maps.Marker({
+          position: event.latLng,
+          draggable: true,
+          map: map
+        });
+        infotable(Marker.getPosition().lat(),
+        Marker.getPosition().lng(),map.getZoom());
+        geocode();
+        google.maps.event.addListener(Marker,'dragend',
+          function(event) {
+            infotable(Marker.getPosition().lat(),
+            Marker.getPosition().lng(),map.getZoom());
+            geocode();
+          }
+        )
+      }
+    )
+    function geocode(){  var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ 'location': Marker.getPosition()}, 
+        function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK && results[0]){
+          document.getElementById('id_address').value = 
+              results[0].formatted_address.replace(/^日本, /, '').substring(13);
+        }else{
+          document.getElementById('id_address').value = 
+            "Geocode 取得に失敗しました";
+          alert("Geocode 取得に失敗しました reason: "
+                + status);
+        }
+      });
+    }
+    function infotable(ido,keido,level){
+    };
+  }
+        
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAX-rK0fYclfitGhmKCfKOSEOvFIOdL80s&callback=initMap">
 </script>

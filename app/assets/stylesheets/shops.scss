@@ -104,10 +104,25 @@ a{
   .shop_btn{
     margin: 10px 0 10px 240px;
   }
+  .map_get{
+    margin: 20px 0;
+    #input_map{
+      height:300px;
+      width: 43%;
+      border: 2px solid #706d6d;
+    }
+    p{
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+  }
 }
 
 
 //詳細画面
+.shop_introduction{
+  margin: 30px 0 0 30px;
+}
 .shop_header{
   border: 3px solid #000000;
   background-color: #383535; 
@@ -156,7 +171,10 @@ a{
 .fa-map-marker-alt{
   margin:4px;
 }
+.edit_user{
+  margin-left: 20px;
+}
 .like_btn{
   font-size: 20px;
-  margin:20px;
+  margin:13px 0 13px 20px;
 }

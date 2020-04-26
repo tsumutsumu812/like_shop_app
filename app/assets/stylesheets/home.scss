@@ -103,3 +103,68 @@
     border: 5px double #4d4848;
   }
 }
+.timeline_title{
+  margin: 30px 0 ;
+}
+
+//トップページ
+.top_page{
+  background-image: url("/clothes.jpg");
+  background-color:rgba(255,255,255,0.6);
+  background-blend-mode:lighten;
+  height: 100px;
+  width: 100%;
+  background-size: cover;
+}
+
+.page_title{
+  font-size: 200px;
+  font-family: 'Lobster', cursive;
+  margin-top: 100px;
+  height: 200px;
+  color: rgb(238, 237, 237);
+  text-shadow: 0 0 10px rgb(56, 47, 47),0 0 15px rgb(214, 187, 213);
+}
+
+.concept{
+  font-style: italic;
+  margin-left: 110px;
+  color: rgb(238, 237, 237);
+  text-shadow: 0 0 10px rgb(48, 42, 42),0 0 15px rgb(223, 184, 221);
+}
+.page_description{
+  margin-top:40px;
+  width: 650px;
+  padding: 18px;
+  border-radius: 20px;
+  background-color: rgba(236, 204, 235, 0.5);
+}
+
+.btn_top{
+  margin:40px;
+}
+.new_group{
+  margin-left: 10px;
+  .btn{
+    margin-left: 10px;
+    border: 1px solid #0b7cc7;
+    border-radius: 10px;
+    &:hover{
+      background-color: #56b3f1;
+    }
+  }
+}
+.ex_g{
+  margin-left:90px;
+}
+.experience{
+  margin-left: 10px;
+  .btn{
+    margin-left: 10px;
+    border: 1px solid #0b7cc7;
+    border-radius: 10px;
+    &:hover{
+      background-color: #56b3f1;
+    }
+  }
+}

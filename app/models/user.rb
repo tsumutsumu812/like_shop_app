@@ -20,6 +20,9 @@ class User < ApplicationRecord
                     dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  mount_uploader :picture, UserImageUploader
+  validate  :picture_size
+
 
   # ユーザーをフォローする
   def follow(other_user)
@@ -52,5 +55,12 @@ class User < ApplicationRecord
   end
   def self.ransacktable_associations(auth_object=nil)
     []
+  end
+
+  # アップロードされた画像のサイズをバリデーションする
+  def picture_size
+    if picture.size > 5.megabytes
+      errors.add(:picture, "should be less than 5MB")
+    end
   end
 end

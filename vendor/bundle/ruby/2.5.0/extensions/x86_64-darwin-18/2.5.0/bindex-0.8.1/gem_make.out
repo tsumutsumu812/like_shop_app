@@ -1,0 +1,15 @@
+current directory: /Users/ryuichi/dev/ruby/2020/like_shop_app/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/ryuichi/.rbenv/versions/2.5.0/bin/ruby -I /Users/ryuichi/.rbenv/versions/2.5.0/lib/ruby/site_ruby/2.5.0 -r ./siteconf20200420-42241-hlj8qg.rb extconf.rb
+creating Makefile
+
+current directory: /Users/ryuichi/dev/ruby/2020/like_shop_app/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/ryuichi/dev/ruby/2020/like_shop_app/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/ryuichi/dev/ruby/2020/like_shop_app/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20200420-42241-13j3c1b/skiptrace/internal

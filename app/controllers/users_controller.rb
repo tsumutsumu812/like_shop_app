@@ -63,7 +63,7 @@ before_action :forbid_login_user, only: [:new, :create]
   
   private
     def  user_params
-      params.require(:user).permit(:name, :email, :introduction, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :introduction, :password, :password_confirmation, :picture)
     end
 
     def  ensure_correct_user

@@ -1,5 +1,5 @@
+<% provide(:title, "投稿編集") %>
 <h1>投稿編集</h1>
-
 <%= render 'form', shop: @shop %>
 <% if current_user %>
   <% if current_user.admin? %>
