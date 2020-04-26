@@ -70,7 +70,6 @@ group :test do
 end
 
 group :production do
-  # gem 'fog', '1.42'
   gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 end
 
