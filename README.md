@@ -1,24 +1,11 @@
-# README
+# アプリ名
+YouLike<br>
+アパレルの店舗を検索したり投稿できるアプリです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#リンク
+https://www.you-like-shop.com
 
-Things you may want to cover:
+#使用技術
+Ruby,Rails,MySQL,nginx,unicorn,RSpec<br>
+VPC,EC2,RDS,S3,CloudFront,Route53,ELB
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

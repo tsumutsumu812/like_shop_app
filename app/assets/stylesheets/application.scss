@@ -11,33 +11,33 @@
  * It is generally better to create a new file per style scope.
  *
  */
- @import "font-awesome-sprockets";
- @import "font-awesome";
- @import "bootstrap";
- @import "shops";
- @import "users";
- @import "sessions";
- @import "comments";
- @import "home";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "bootstrap";
+@import "shops";
+@import "users";
+@import "sessions";
+@import "comments";
+@import "home";
 
- .nav-font{
-  font-family: 'Lobster', cursive;
- }
+.nav-font{
+font-family: 'Lobster', cursive;
+}
 
- body{
-   background-color: rgb(238, 231, 231);
-   margin:70px 0;
- }
+body{
+  background-color: rgb(238, 231, 231);
+  margin:70px 0;
+}
 
- .nav{
-  .fa, .fas{
-    padding: 12px 0;
-    margin: 0 3px;
-  }
- }
- $active_color:rgb(47, 221, 221);
- .active{
-  font-weight: bold;
-  color: $active_color;
-  text-shadow: 0 0 10px $active_color,0 0 15px $active_color;
- }
+.nav{
+.fa, .fas{
+  padding: 12px 0;
+  margin: 0 3px;
+}
+}
+$active_color:rgb(47, 221, 221);
+.active{
+font-weight: bold;
+color: $active_color;
+text-shadow: 0 0 10px $active_color,0 0 15px $active_color;
+}

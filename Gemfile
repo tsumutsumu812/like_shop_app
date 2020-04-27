@@ -36,12 +36,29 @@ gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'rails-i18n', '~> 5.1'
+gem 'bootstrap', '~> 4.00'
+gem 'mini_racer'
+gem 'kaminari'
+gem 'fog-aws'
+gem 'carrierwave', '1.2.2'
+gem 'mini_magick', '4.7.0' 
+gem 'ransack'
+gem 'jquery-rails', '4.3.1'
+gem 'font-awesome-sass', '~> 5.4.1'
+gem 'dotenv-rails'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   # gem 'sqlite3', '~> 1.3.6'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rails-flog', require: 'flog'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -74,19 +91,7 @@ group :production do
 end
 
 group :production, :staging do
-    gem 'unicorn'
+  gem 'unicorn', '5.4.1'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'rails-i18n', '~> 5.1'
-gem 'bootstrap', '~> 4.00'
-gem 'mini_racer'
-gem 'kaminari'
-gem 'fog-aws'
-gem 'carrierwave', '1.2.2'
-gem 'mini_magick', '4.7.0'
-gem 'ransack'
-gem 'jquery-rails', '4.3.1'
-gem 'font-awesome-sass', '~> 5.4.1'
-gem 'dotenv'
+

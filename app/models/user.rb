@@ -1,14 +1,6 @@
 class User < ApplicationRecord
   before_save { self.email = email.downcase }
   has_secure_password
-  validates :name, presence:true
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-  validates :email, presence:true, uniqueness: { case_sensitive: false },
-             length: { maximum: 100 },
-             format: { with: VALID_EMAIL_REGEX }
-  validates :introduction, length: { maximum: 256 }
-  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-  default_scope -> { order(created_at: :desc) }
   has_many :shops, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -20,9 +12,17 @@ class User < ApplicationRecord
                     dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
-  mount_uploader :picture, UserImageUploader
+  validates :name, presence:true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  validates :email, presence:true, uniqueness: { case_sensitive: false },
+             length: { maximum: 100 },
+             format: { with: VALID_EMAIL_REGEX }
+  validates :introduction, length: { maximum: 256 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validate  :picture_size
-
+  default_scope -> { order(created_at: :desc) }
+  
+  mount_uploader :picture, UserImageUploader
 
   # ユーザーをフォローする
   def follow(other_user)
