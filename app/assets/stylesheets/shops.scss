@@ -23,8 +23,8 @@ a{
 .search_shop_form{
   border: 3px solid rgb(22, 151, 236);
   padding: 15px;
-  margin: 15px auto;
-  width: 700px;
+  margin: 30px auto;
+  width: 720px;
   height:140px;
 }
 
@@ -89,6 +89,7 @@ a{
   .shop_image_container{
     margin-top: 8px;
     height: 250px;
+    margin-left: 4px;
   }
   .shop_image{
     width: 270px;
@@ -136,6 +137,7 @@ a{
   .shop_image_container{
     margin-top: 8px;
     height: 250px;
+    margin-left: 4px;
   }
   .shop_image{
     width: 270px;
@@ -157,6 +159,7 @@ a{
 .description{
   border: 3px solid #6e6969;
   padding:10px;
+  word-break: break-all;
 }
 .mapping{
   height: 350px;

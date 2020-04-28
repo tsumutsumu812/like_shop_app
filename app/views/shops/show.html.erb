@@ -54,13 +54,18 @@
       <div class="description">
         <p>
           <strong>詳細説明:</strong>
-          <%= @shop.description %>
+          <%= simple_format(@shop.description) %>
         </p>
       </div>
     </div>
     <div>
-      <div id="address"></div>
-      <div id="map"></div>
+      <% if @shop.address!="" %>
+        <div id="address" class="address row">
+          <i class="fas fa-map-marker-alt"></i>
+          <p><%= @shop.address %></p>
+        </div>
+        <div id="map"></div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -125,17 +130,6 @@
           map: map
         })
         mapping.classList.add("mapping");
-        var address = document.getElementById("address")
-        address.classList.add("address")
-        address.classList.add("row")
-        var i = document.createElement("i");
-        i.className = "fas fa-map-marker-alt";
-        address.appendChild(i)
-
-        var address_info = document.createElement("p");
-        address_info.innerHTML = "<%= @shop.address %>";
-        address.appendChild(address_info);
-        
     })
   }
 </script>

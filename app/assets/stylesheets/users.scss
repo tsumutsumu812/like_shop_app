@@ -30,7 +30,7 @@ a{
     gap: 15px;
     margin: 0 auto;
   }
-  @media(min-width: 1400px){
+  @media(min-width: 1000px){
     .user_index{
       grid-template-columns: 300px 300px 300px;
     }
@@ -63,6 +63,9 @@ a{
   
 }
 //詳細画面
+.profile-header{
+  padding-left: 10%;
+}
 .user_info{
   margin-bottom: 20px;
 }
@@ -77,14 +80,12 @@ a{
 .introduction{
   width: 50%;
 }
-.following{
-  margin: 0 15px;
-}
 .post_box{
   margin-top:30px;
   .post_header{
     float: left;
     margin-right: 10px;
+    padding-left: 10%;
   }
   p{
     padding-top: 5px;
@@ -94,6 +95,7 @@ a{
   margin-bottom: 20px;
   h4{
     margin:30px 0;
+    padding-left:10%;
   }
 }
 
@@ -166,6 +168,7 @@ a{
   .shop_image_container{
     margin-top: 8px;
     height: 250px;
+    margin-left: 4px;
   }
   .shop_image{
     width: 270px;
