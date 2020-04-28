@@ -30,7 +30,7 @@ a{
     gap: 15px;
     margin: 0 auto;
   }
-  @media(min-width: 1000px){
+  @media(min-width: 800px){
     .user_index{
       grid-template-columns: 300px 300px 300px;
     }
