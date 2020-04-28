@@ -98,6 +98,24 @@ a{
     padding-left:10%;
   }
 }
+.stats{
+  margin-bottom: 10px
+}
+.following{
+  color: rgb(3, 155, 129);
+  font-weight: bold;
+  &:hover{
+    color: rgb(25, 153, 175);
+  }
+}
+.follower{
+  color: rgb(3, 155, 129);
+  font-weight: bold;
+  &:hover{
+    color: rgb(25, 153, 175);
+  }
+  margin-left: 15px
+}
 
 //ユーザー登録
 .user_btn{
