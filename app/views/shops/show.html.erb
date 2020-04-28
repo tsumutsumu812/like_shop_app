@@ -54,7 +54,7 @@
       <div class="description">
         <p>
           <strong>詳細説明:</strong>
-          <%= @shop.description %>
+          <%= simple_format(@shop.description) %>
         </p>
       </div>
     </div>
@@ -65,7 +65,7 @@
           <p><%= @shop.address %></p>
         </div>
         <div id="map"></div>
-      <% end  %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -129,7 +129,11 @@
           position: mark,
           map: map
         })
+<<<<<<< HEAD
         mapping.classList.add("mapping");        
+=======
+        mapping.classList.add("mapping");
+>>>>>>> 21de4fe91f6f13685506f2f975f1634d79ddbf43
     })
   }
 </script>

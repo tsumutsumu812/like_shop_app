@@ -1,32 +1,33 @@
 <% provide(:title, @user.name) %>
-<div class="user_info">
-  <div>
-    <div class="profile">
-      <% if @user.picture? %>
-        <%= image_tag @user.picture.url, class: "gravatar icon"%>
-      <% else %>
-        <%= gravatar_for @user %>
+<div class="profile-header">
+  <div class="user_info">
+    <div>
+      <div class="profile">
+        <% if @user.picture? %>
+          <%= image_tag @user.picture.url, class: "gravatar icon"%>
+        <% else %>
+          <%= gravatar_for @user %>
+        <% end %>
+      </div>
+      <h3 class="user_name"><%=@user.name%></h3>
+    </div>
+    <p class="introduction"><%=@user.introduction%></p>
+    <div class="setting">
+      <% if current_user %>
+        <%if @user.id == current_user.id || current_user.admin?%>
+          <button class="btn btn-info">
+            <%= link_to "ユーザー設定", edit_user_url(@user) %>
+          </button>
+        <%end%>
       <% end %>
     </div>
-    <h3 class="user_name"><%=@user.name%></h3>
   </div>
-  <p class="introduction"><%=@user.introduction%></p>
-  <div class="setting">
-    <% if current_user %>
-      <%if @user.id == current_user.id || current_user.admin?%>
-        <button class="btn btn-info">
-          <%= link_to "ユーザー設定", edit_user_url(@user) %>
-        </button>
-      <%end%>
-    <% end %>
-  </div>
+
+  <section class="stats">
+    <%= render 'shared/stats' %>
+  </section>
+  <%= render 'follow_form' if current_user%>
 </div>
-
-<section class="stats">
-  <%= render 'shared/stats' %>
-</section>
-<%= render 'follow_form' if current_user%>
-
 
 <div class="post_box">
   <div>

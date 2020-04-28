@@ -7,7 +7,6 @@ class CommentsController < ApplicationController
     if comment.save
       redirect_to comment.shop, flash: { success: "コメントを保存しました。" }
     else
-      #flash[:danger] = comment.errors.full_messages
       redirect_back fallback_location: comment.shop, flash: { danger: "コメントは255文字以内で記入してください" }
     end
   end

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Users", type: :feature do
   scenario "Signupページにページ遷移できるか" do
     visit root_url
-    click_on "新規ユーザー登録"
+    click_on "新規ユーザー登録", match: :first
     expect(page).to have_content("新規ユーザー登録")
   end
 

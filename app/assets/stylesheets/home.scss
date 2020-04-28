@@ -49,7 +49,7 @@
     .shop_index{
       grid-template-columns: 300px 300px 300px;
     }
-   }
+  }
   .shop_container{
     border: 1px solid #acabab;
     display:flex;
@@ -95,6 +95,7 @@
   .shop_image_container{
     margin-top: 8px;
     height: 250px;
+    margin-left: 4px;
   }
   .shop_image{
     width: 270px;
@@ -142,15 +143,19 @@
 
 .btn_top{
   margin:40px;
+  p{
+    font-size: 23px;
+  }
 }
 .new_group{
   margin-left: 10px;
   .btn{
     margin-left: 10px;
     border: 1px solid #0b7cc7;
+    background-color: #5cd1e6;
     border-radius: 10px;
     &:hover{
-      background-color: #56b3f1;
+      background-color: #4aa9e9;
     }
   }
 }
@@ -160,11 +165,12 @@
 .experience{
   margin-left: 10px;
   .btn{
-    margin-left: 10px;
+    margin-left: 40px;
     border: 1px solid #0b7cc7;
+    background-color: #5cd1e6;
     border-radius: 10px;
     &:hover{
-      background-color: #56b3f1;
+      background-color: #4aa9e9;
     }
   }
 }

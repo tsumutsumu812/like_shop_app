@@ -5,8 +5,8 @@
     <%= search_form_for @q, class:"mb-5" do |f| %>
       <div class="search_form">  
         <div class="form-group row">
-          <%= f.label :name_cont, "アカウント名検索", class: "col-sm-2 col-form-label" %>
-          <div class="col-sm-3">
+          <%= f.label :name_cont, "アカウント名", class: "col-sm-2 col-form-label" %>
+          <div class="col-sm-4">
             <%= f.search_field :name_cont, class: "form-control" %>
           </div>
           <div class="form-group col-sm-1">
@@ -16,8 +16,6 @@
       </div>
     <% end %>
   </div>
-
-  <%#= page_entries_info @users%>
 
   <div class="user_index">
     <% @users.each do |user| %>

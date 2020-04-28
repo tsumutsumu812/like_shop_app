@@ -16,6 +16,13 @@ RSpec.describe Shop, type: :model do
         expect(shop.errors[:name]).to include("を入力してください")
       end
     end
+    context "名前が10文字以上の時" do
+      it "バリデーションエラーが発生すること" do
+        shop.name = "a"*11
+        shop.valid?
+        expect(shop).to be_invalid 
+      end
+    end
     context "エリアが10文字以上の時" do
       it "バリデーションエラーが発生すること" do
         shop.area = "a"*11
@@ -44,7 +51,7 @@ RSpec.describe Shop, type: :model do
         expect(shop).to be_invalid 
       end
     end
-    context "詳細説明が10文字以上の時" do
+    context "詳細説明が500文字以上の時" do
       it "バリデーションエラーが発生すること" do
         shop.description = "a"*501
         shop.valid?

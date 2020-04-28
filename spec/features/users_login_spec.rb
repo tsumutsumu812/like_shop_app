@@ -11,7 +11,7 @@ RSpec.feature "UsersLogin", type: :feature do
     click_button "ログイン"
     expect(page).to_not have_css("a", text: "ログイン")
     expect(page).to have_css("a", text: "ログアウト")
-    expect(page).to have_css("a", text: "新規投稿")
+    expect(page).to have_css("a", text: "投稿")
   end
 
 end
