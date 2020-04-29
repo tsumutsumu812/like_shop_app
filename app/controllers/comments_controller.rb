@@ -23,9 +23,8 @@ class CommentsController < ApplicationController
   end
 
   def delete_authenticate
-    shop = Shop.find(params[:id])
     comment = Comment.find(params[:id]) 
-    unless current_user.id == comment.user.id || current_user.id == shop.user.id || current_user.admin?
+    unless current_user.id == comment.user.id || current_user.id == comment.shop.user.id || current_user.admin?
       redirect_to shops_path, flash: { danger: "削除権限がありません" } 
     end
   end
