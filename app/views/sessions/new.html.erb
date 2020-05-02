@@ -12,3 +12,6 @@
   <%= f.submit "ログイン", class:"btn btn-primary login_btn" %>
 <% end %>
 
+<p>☆登録なしでログイン</p>
+<%= link_to "ゲストユーザーでログイン", guest_path, method: :post, class:"btn btn-success" %>
+
