@@ -19,6 +19,16 @@ class SessionsController < ApplicationController
     reset_session
     redirect_to root_url, flash: { success: "ログアウトしました。"}
   end
+  
+  def guest_login
+    user = User.find_by(email: 'pman@gmail.com')
+    session[:user_id] = user.id
+    flash[:success] = 'ゲストユーザーでログインしました'
+    flash[:warning] = '閲覧ありがとうございます！'
+    redirect_to shops_path
+  end
+
+  
   private 
     def session_params
       params.require(:session).permit(:email, :password)
