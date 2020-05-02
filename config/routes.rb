@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :comments, only: %i[create destroy]
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+  post '/guest', to: 'sessions#guest_login'
   delete '/logout', to: 'sessions#destroy'
   post "likes/:shop_id/create", to: "likes#create"
   post "likes/:shop_id/destroy", to: "likes#destroy"
